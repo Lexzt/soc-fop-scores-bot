@@ -22,6 +22,7 @@ bot.onText(/\/start/, function (msg, match) {
   message += "Create your house by using /create_house [house_name] [house_color] command.\n"
   message += "Create your og by using /create_og [house_name] [og_name] command.\n"
   message += "Add score by using /add_score command.\n"
+  message += "View score by using /list_scores command.\n"
   bot.sendMessage(fromId, message);
 });
 
