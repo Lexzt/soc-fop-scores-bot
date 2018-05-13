@@ -240,7 +240,7 @@ FirebaseManager.prototype.showList = function (bot, listId) {
 
 FirebaseManager.prototype.checkIfApproved = function (userId) {
   console.log(userId);
-  return (resolve, reject) => {
+  return new Promise ((resolve, reject) => {
     db.ref("Users").
       child(userId).
       once("value", function (snapshot) {
@@ -248,7 +248,7 @@ FirebaseManager.prototype.checkIfApproved = function (userId) {
         console.log("approved: " + snapshot.val() !== null);
         resolve(snapshot.val() !== null);
       });
-    }
+    });
   };
 
 module.exports = new FirebaseManager();
