@@ -160,4 +160,12 @@ bot.onText(/\/list_scores/, function (msg, match) {
   FirebaseManager.listScores(bot, msg.chat.id);
 });
 
+/*
+ * To deal with Auth
+ * 
+ */
+bot.onText(/\/print/, function (msg, match) {
+  console.log(msg);
+});
+
 module.exports = bot;

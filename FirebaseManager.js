@@ -3,6 +3,7 @@
  */
 var firebase = require("firebase");
 
+// Initalize the details needed for firebase account
 firebase.initializeApp({
   serviceAccount: "SOC FOP Score bot-64daed28285e.json",
   databaseURL: "https://soc-fop-score-bot.firebaseio.com/"
@@ -14,20 +15,21 @@ var db = firebase.database(),
 var FirebaseManager = function () { };
 
 /**
- * Function to create a new list
+ * Function to create a new house on firebase.
  *
- * @param  {[type]} listId   [description]
- * @param  {[type]} listname [description]
- * @return {[type]}          [description]
+ * @param  {[String]} house_name  [House name]
+ * @param  {[String]} house_head  [House Head name]
+ * @param  {[String]} house_color [House Color, Type]
  */
 FirebaseManager.prototype.createHouse = function (house_name, house_head, house_color) {
-  //Get current lis()
+  // Holds format for houses and child of that house, s_listReference. 
   var s_list = "Houses",
     s_listReference = house_color + ' House';
 
+  // Reference of the house, based on the database.
   var listsRef = ref.child(s_listReference);
 
-  //Set datas to list
+  // Create a new child with original value.
   listsRef.set({
     houseHead: house_head.first_name + " " + house_head.last_name,
     houseColor: house_color,
@@ -36,6 +38,13 @@ FirebaseManager.prototype.createHouse = function (house_name, house_head, house_
   });
 };
 
+/**
+ * Function to create a new og on firebase.
+ *
+ * @param  {[Telegram Bot]} house_name  [House name]
+ * @param  {[String]} house_head  [House Head name]
+ * @param  {[String]} house_color [House Color, Type]
+ */
 FirebaseManager.prototype.createOG = function (bot, listId, house_color, og_name, action) {
   ref.once('value', function (snapshot) {
     var listObj = snapshot.val();
