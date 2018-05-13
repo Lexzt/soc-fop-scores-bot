@@ -229,13 +229,26 @@ FirebaseManager.prototype.showList = function (bot, listId) {
   });
 };
 
+// FirebaseManager.prototype.checkIfApproved = function (userId) {
+//   console.log(userId);
+//   db.ref("Users").child(userId).once("value", function (snapshot) {
+//     console.log(snapshot.val());
+//     console.log("approved: " + snapshot.val() !== null);
+//     return (snapshot.val() !== null)
+//   });
+// };
+
 FirebaseManager.prototype.checkIfApproved = function (userId) {
   console.log(userId);
-  db.ref("Users").child(userId).once("value", function (snapshot) {
-    console.log(snapshot.val());
-    console.log("approved: " + snapshot.val() !== null);
-    return (snapshot.val() !== null)
-  });
-};
+  return (resolve, reject) => {
+    db.ref("Users").
+      child(userId).
+      once("value", function (snapshot) {
+        console.log(snapshot.val());
+        console.log("approved: " + snapshot.val() !== null);
+        resolve(snapshot.val() !== null);
+      });
+    }
+  };
 
 module.exports = new FirebaseManager();
