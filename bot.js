@@ -170,9 +170,8 @@ bot.onText(/\/print/, function (msg, match) {
 
   let promise = new Promise((resolve,reject)=> {
     approved = FirebaseManager.checkIfApproved(msg.from.id);
+    resolve("Done");
   });
-
-  Promise.all(promise);
 
   promise.then((success) => {
     if(approved){
