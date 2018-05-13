@@ -229,5 +229,10 @@ FirebaseManager.prototype.showList = function (bot, listId) {
   });
 };
 
+FirebaseManager.prototype.checkIfApproved = function (userId) {
+  db.ref("Users").once("value", function (snapshot) {
+    console.log(snapshot.val());
+  });
+};
 
 module.exports = new FirebaseManager();
