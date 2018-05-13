@@ -251,7 +251,7 @@ FirebaseManager.prototype.addauth = function (userId, userLevel) {
       level:userLevel
     });
 
-    db.ref("Users").push
+    resolve(true);
   })
 };
 
