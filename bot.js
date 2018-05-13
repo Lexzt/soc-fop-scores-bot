@@ -175,7 +175,7 @@ bot.onText(/\/testauth/, function (msg, match) {
 });
 
 
-bot.onText(/\/addauth/, function (msg, match) {
+bot.onText(/\/addauth (.+)/, function (msg, match) {
   var id = match[1].split(' ')[0];
   var level = match[1].split(' ')[1];
   FirebaseManager.addauth(id, level);
