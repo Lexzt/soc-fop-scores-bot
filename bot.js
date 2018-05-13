@@ -166,7 +166,7 @@ bot.onText(/\/list_scores/, function (msg, match) {
  */
 bot.onText(/\/print/, function (msg, match) {
   console.log("ID: " + msg.from.id);
-  var approved = FirebaseManager.checkIfApproved(msg.from.id);
+  var approved = Promise.all(FirebaseManager.checkIfApproved(msg.from.id));
   if(approved){
     console.log("Approved: True");
   } else {

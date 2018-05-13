@@ -233,7 +233,7 @@ FirebaseManager.prototype.checkIfApproved = function (userId) {
   console.log(userId);
   db.ref("Users").child(userId).once("value", function (snapshot) {
     console.log(snapshot.val());
-    return Promise.all(snapshot.val() !== null)
+    return (snapshot.val() !== null)
   });
 };
 
