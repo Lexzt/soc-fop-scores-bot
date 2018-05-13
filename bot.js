@@ -161,13 +161,23 @@ bot.onText(/\/list_scores/, function (msg, match) {
 });
 
 /*
- * To deal with Auth
- * 
+ * An example on how to use auth
  */
-bot.onText(/\/print/, function (msg, match) {
+bot.onText(/\/testauth/, function (msg, match) {
   FirebaseManager.checkIfApproved(msg.from.id).then((success)=>{
-    console.log(success);
+    if(success){
+      bot.sendMessage(msg.chat.id, "Success!");
+    } else {
+      var message = "You are not allowed to do this action!";
+      bot.sendMessage(msg.chat.id, message);
+    }
   })
 });
 
+
+bot.onText(/\/addauth/, function (msg, match) {
+  var id = match[1].split(' ')[0];
+  var level = match[1].split(' ')[1];
+  FirebaseManager.addauth(id, level);
+});
 module.exports = bot;

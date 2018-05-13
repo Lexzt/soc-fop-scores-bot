@@ -61,10 +61,10 @@ FirebaseManager.prototype.addScoreGroups = function (bot, listId, house_color) {
   var funcKeyboard = {
     reply_markup: {
       inline_keyboard:
-      [
         [
-        ]
-      ],
+          [
+          ]
+        ],
     }
   }
 
@@ -229,18 +229,8 @@ FirebaseManager.prototype.showList = function (bot, listId) {
   });
 };
 
-// FirebaseManager.prototype.checkIfApproved = function (userId) {
-//   console.log(userId);
-//   db.ref("Users").child(userId).once("value", function (snapshot) {
-//     console.log(snapshot.val());
-//     console.log("approved: " + snapshot.val() !== null);
-//     return (snapshot.val() !== null)
-//   });
-// };
-
 FirebaseManager.prototype.checkIfApproved = function (userId) {
-  console.log(userId);
-  return new Promise ((resolve, reject) => {
+  return new Promise((resolve, reject) => {
     db.ref("Users").
       child(userId).
       once("value", function (snapshot) {
@@ -248,7 +238,21 @@ FirebaseManager.prototype.checkIfApproved = function (userId) {
         console.log("approved: " + snapshot.val() !== null);
         resolve(snapshot.val() !== null);
       });
+  });
+};
+
+FirebaseManager.prototype.addauth = function (userId, userLevel) {
+  return new Promise((resolve, reject) => {
+    // Reference of the house, based on the database.
+    var listsRef = db.ref("Users").child(userId);
+
+    // Create a new child with original value.
+    listsRef.set({
+      level:userLevel
     });
-  };
+
+    db.ref("Users").push
+  })
+};
 
 module.exports = new FirebaseManager();
