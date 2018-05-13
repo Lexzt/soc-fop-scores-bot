@@ -165,7 +165,7 @@ bot.onText(/\/list_scores/, function (msg, match) {
  * 
  */
 bot.onText(/\/print/, function (msg, match) {
-  console.log(msg);
+  console.log("See if any changes: " + msg);
 });
 
 module.exports = bot;
