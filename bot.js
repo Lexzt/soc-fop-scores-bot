@@ -166,12 +166,19 @@ bot.onText(/\/list_scores/, function (msg, match) {
  */
 bot.onText(/\/print/, function (msg, match) {
   console.log("ID: " + msg.from.id);
-  var approved = Promise.all(FirebaseManager.checkIfApproved(msg.from.id));
-  if(approved){
-    console.log("Approved: True");
-  } else {
-    console.log("Approved: False");
-  }
+  var approved;
+
+  let promise = new Promise((resolve,reject)=> {
+    approved = FirebaseManager.checkIfApproved(msg.from.id);
+  });
+
+  promise.then((success) => {
+    if(approved){
+      console.log("Approved: True");
+    } else {
+      console.log("Approved: False");
+    }
+  });
 });
 
 module.exports = bot;
