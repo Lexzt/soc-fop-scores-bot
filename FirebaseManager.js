@@ -230,10 +230,10 @@ FirebaseManager.prototype.showList = function (bot, listId) {
 };
 
 FirebaseManager.prototype.checkIfApproved = function (userId) {
+  console.log(userId);
   db.ref("Users").child(userId).once("value", function (snapshot) {
     return (snapshot.val() !== null);
   });
-  return false;
 };
 
 module.exports = new FirebaseManager();
