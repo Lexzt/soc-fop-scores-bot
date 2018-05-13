@@ -172,6 +172,8 @@ bot.onText(/\/print/, function (msg, match) {
     approved = FirebaseManager.checkIfApproved(msg.from.id);
   });
 
+  Promise.all(promise);
+
   promise.then((success) => {
     if(approved){
       console.log("Approved: True");
