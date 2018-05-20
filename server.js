@@ -12,9 +12,16 @@ app.listen(process.env.PORT);
 
 // setup telegram bot
 
-const bot = new Telegraf(process.env.BOT_TOKEN);
-bot.telegram.setWebhook(process.env.BOT_URL+process.env.BOT_TOKEN);
-app.use(bot.webhookCallback(process.env.BOT_URL+process.env.BOT_TOKEN));
+// const bot = new Telegraf(process.env.BOT_TOKEN);
+// bot.telegram.setWebhook(process.env.BOT_URL+process.env.BOT_TOKEN);
+// app.use(bot.webhookCallback(process.env.BOT_URL+process.env.BOT_TOKEN));
+
+const URL = process.env.URL || '';
+const API_TOKEN = process.env.BOT_TOKEN || '';
+
+const bot = new Telegraf(BOT_TOKEN);
+bot.telegram.setWebhook(`${URL}/bot${BOT_TOKEN}`);
+app.use(bot.webhookCallback(`/bot${API_TOKEN}`));
 
 bot.telegram.getMe().then((botInfo) => {
   bot.options.username = botInfo.username;
