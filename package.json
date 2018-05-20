@@ -1,21 +1,28 @@
 {
-  "name": "heroku-node-telegram-bot",
-  "version": "1.0.0",
-  "description": "Starter pack for running telegram bot on the Heroku using Node.js",
-  "main": "index.js",
+  "name": "nyascore",
+  "version": "0.0.1",
+  "description": "Telegram bot for keeping track of scores",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "export $(cat .env | xargs) && node index.js",
-    "set_env": "export $(cat .env | xargs)",
-    "switch_to_dev": "export $(cat .env | xargs) && wget --spider https://api.telegram.org/bot$TOKEN/setWebhook?url= --delete-after && node index.js"
+    "start": "node server.js"
   },
-  "author": "Volodymyr Lut",
-  "license": "ISC",
   "dependencies": {
-    "body-parser": "^1.15.0",
-    "express": "^4.13.4",
-    "firebase": "^3.3.0",
-    "node-telegram-bot-api": "^0.30.0",
-    "request": "^2.83.0"
-  }
+    "express": "^4.16.3",
+    "telegraf": "^3.21.1",
+    "sync-request": "^6.0.0",
+    "fast-xml-parser": "^3.10.0",
+    "lowdb": "^1.0.0",
+    "lodash": "^4.17.10"
+  },
+  "engines": {
+    "node": "8.x"
+  },
+  "repository": {
+    "url": "https://glitch.com/edit/#!/nyascore"
+  },
+  "license": "MIT",
+  "keywords": [
+    "node",
+    "telegram"
+  ]
 }

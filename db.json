@@ -1,0 +1,43 @@
+{
+  "users": [
+    {
+      "id": 377067735,
+      "level": 0
+    },
+    {
+      "id": 190282242,
+      "level": 3
+    }
+  ],
+  "houses": [
+    {
+      "color": "red",
+      "name": "default",
+      "head": 0,
+      "stnscore": [],
+      "score": 12,
+      "ogs": [
+        {
+          "name": "nyaog",
+          "head": 377067735
+        }
+      ]
+    },
+    {
+      "color": "green",
+      "name": "default",
+      "head": 0,
+      "stnscore": [],
+      "score": 0,
+      "ogs": []
+    },
+    {
+      "color": "blue",
+      "name": "default",
+      "head": 0,
+      "stnscore": [],
+      "score": 0,
+      "ogs": []
+    }
+  ]
+}
