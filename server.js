@@ -11,7 +11,8 @@ app.listen(process.env.PORT);
 
 // setup telegram bot
 
-const bot = new Telegraf(process.env.BOT_TOKEN);
+// const bot = new Telegraf(process.env.BOT_TOKEN);
+const bot = new Telegraf("526994033:AAFPUKXTEgx6vvXFnkyAh1aOWatdAWw8YQE");
 
 bot.telegram.getMe().then((botInfo) => {
   bot.options.username = botInfo.username;
