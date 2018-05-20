@@ -11,9 +11,9 @@ app.listen(process.env.PORT);
 
 // setup telegram bot
 
-// const bot = new Telegraf(process.env.BOT_TOKEN);
-const bot = new Telegraf('526994033:AAFPUKXTEgx6vvXFnkyAh1aOWatdAWw8YQE');
-bot.setWebHook('https://soc-fop-score-bot.herokuapp.com/526994033:AAFPUKXTEgx6vvXFnkyAh1aOWatdAWw8YQE');
+const bot = new Telegraf(process.env.BOT_TOKEN);
+bot.telegram.setWebhook(process.env.BOT_URL+process.env.BOT_TOKEN);
+app.use(bot.webhookCallback(process.env.BOT_URL+process.env.BOT_TOKEN));
 
 bot.telegram.getMe().then((botInfo) => {
   bot.options.username = botInfo.username;
