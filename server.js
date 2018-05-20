@@ -19,8 +19,8 @@ app.listen(process.env.PORT);
 const URL = process.env.URL || '';
 const API_TOKEN = process.env.BOT_TOKEN || '';
 
-const bot = new Telegraf(BOT_TOKEN);
-bot.telegram.setWebhook(`${URL}/bot${BOT_TOKEN}`);
+const bot = new Telegraf(API_TOKEN);
+bot.telegram.setWebhook(`${URL}/bot${API_TOKEN}`);
 app.use(bot.webhookCallback(`/bot${API_TOKEN}`));
 
 bot.telegram.getMe().then((botInfo) => {
