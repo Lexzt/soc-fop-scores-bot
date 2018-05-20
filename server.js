@@ -22,11 +22,6 @@ const PORT = process.env.PORT || 3000;
 
 const bot = new Telegraf(API_TOKEN);
 bot.telegram.setWebhook(`${URL}/bot${API_TOKEN}`);
-try {
-bot.startWebhook(API_TOKEN, null, PORT);
-} catch (err) {
-  console.log(err);
-}
 
 bot.telegram.getMe().then((botInfo) => {
   bot.options.username = botInfo.username;
