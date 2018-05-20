@@ -2,6 +2,7 @@ const Telegraf = require('telegraf');
 const express = require('express');
 const Model = require('./model');
 const Weather = require('./weather');
+const Dotenv = require('dotenv').config();
 
 // setup webserver for web interface
 
