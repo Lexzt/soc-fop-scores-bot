@@ -8,11 +8,11 @@
   },
   "dependencies": {
     "express": "^4.16.3",
-    "telegraf": "^3.21.1",
-    "sync-request": "^6.0.0",
-    "fast-xml-parser": "^3.10.0",
+    "fast-xml-parser": "^3.11.0",
+    "lodash": "^4.17.10",
     "lowdb": "^1.0.0",
-    "lodash": "^4.17.10"
+    "sync-request": "^6.0.0",
+    "telegraf": "^3.21.1"
   },
   "engines": {
     "node": "8.x"
